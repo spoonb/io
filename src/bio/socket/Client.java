@@ -17,8 +17,10 @@ public class Client {
                进而导致服务端的socket也被异常释放，报错
              */
             ps.print("hello world!");
-//             ps.println("hello world!");
+//            ps.println("hello world!");
             ps.flush();
+//            ps.close();
+            System.out.println("");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
