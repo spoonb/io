@@ -1,14 +1,16 @@
-package bio.socket;
+package bio.socket.demo01;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 
+/**
+ * 需求：客户端可以向服务端发送消息
+ */
 public class Client {
 
     public static void main(String[] args) {
-        try {
-            Socket socket = new Socket("127.0.0.1", 9999);
+        try (var socket = new Socket("127.0.0.1", 9999)) {
             OutputStream os = socket.getOutputStream();
             PrintStream ps = new PrintStream(os);
             /*
