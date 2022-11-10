@@ -1,4 +1,4 @@
-package bio.socket.demo04;
+package io.bio.socket.demo04;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,8 +16,8 @@ public class Server {
                 socket = ss.accept();
                 pool.execute(new ServerRunnable(socket));
             } while (socket != null);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

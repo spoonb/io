@@ -1,4 +1,4 @@
-package bio.socket.demo04;
+package io.bio.socket.demo04;
 
 import java.io.PrintStream;
 import java.net.Socket;
@@ -18,9 +18,10 @@ public class Client {
             do {
                 msg = sc.nextLine();
                 ps.println(msg);
+                ps.println(msg);
             } while (!"exit".equalsIgnoreCase(msg));
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

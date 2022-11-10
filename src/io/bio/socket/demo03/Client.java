@@ -1,4 +1,4 @@
-package bio.socket.demo02;
+package io.bio.socket.demo03;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -23,8 +23,8 @@ public class Client {
                 ps.flush();
             } while (!"exit".equalsIgnoreCase(msg)); // 输入exit时，客户端生命周期结束
             System.out.println("");
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

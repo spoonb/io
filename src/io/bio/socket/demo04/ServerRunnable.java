@@ -1,4 +1,4 @@
-package bio.socket.demo04;
+package io.bio.socket.demo04;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,13 +14,14 @@ public class ServerRunnable implements Runnable {
 
     @Override
     public void run() {
-        try (var is = socket.getInputStream(); var br = new BufferedReader(new InputStreamReader(is))) {
+        try (var is = socket.getInputStream();
+             var br = new BufferedReader(new InputStreamReader(is))) {
             String msg;
             while ((msg = br.readLine()) != null) {
                 System.out.println(msg);
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

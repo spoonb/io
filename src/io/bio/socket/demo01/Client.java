@@ -1,4 +1,4 @@
-package bio.socket.demo01;
+package io.bio.socket.demo01;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -23,8 +23,8 @@ public class Client {
             ps.flush();
 //            ps.close();
             System.out.println("");
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

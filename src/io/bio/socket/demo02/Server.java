@@ -1,13 +1,10 @@
-package bio.socket.demo01;
+package io.bio.socket.demo02;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 
-/**
- * 需求：服务端可以接受客户端发来的消息
- */
 public class Server {
 
     public static void main(String[] args) {
@@ -19,11 +16,12 @@ public class Server {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             // 4. 获取客户端发送的消息
             String msg = null;
-            if ((msg = br.readLine()) != null) {
+            // if -> while
+            while ((msg = br.readLine()) != null) {
                 System.out.println(msg);
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
