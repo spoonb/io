@@ -4,20 +4,20 @@ import java.io.*;
 import java.net.Socket;
 
 /**
- * 需求：向客户端发送一个文件
+ * 需求：向客户端发送多个文件
  */
 public class Client {
 
     public static void main(String[] args) {
         try (var socket = new Socket("127.0.0.1", 9999)) {
-            File dir = new File("src/io/bio/socket/demo05/client/");
+            File dir = new File("src/io/bio/socket/demo06/client/");
             OutputStream os = socket.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
+            dos.writeInt(dir.listFiles().length);
             for (File file : dir.listFiles()) {
                 dos.writeUTF(suffix(file));
                 dos.writeLong(file.length());
             }
-            dos.writeLong(dir.length());
             byte[] bytes = new byte[1024];
             for (File file : dir.listFiles()) {
                 BufferedInputStream bi = new BufferedInputStream(new FileInputStream(file));
@@ -27,8 +27,8 @@ public class Client {
                     dos.flush();
                 }
                 bi.close();
-                dos.close();
             }
+            dos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
