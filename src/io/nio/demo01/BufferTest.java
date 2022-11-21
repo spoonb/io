@@ -1,4 +1,4 @@
-package io.bio.socket.nio.demo01;
+package io.nio.demo01;
 
 import java.nio.ByteBuffer;
 

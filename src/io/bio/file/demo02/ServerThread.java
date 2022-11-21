@@ -1,12 +1,9 @@
-package io.bio.socket.demo06;
+package io.bio.file.demo02;
 
 import java.io.DataInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 public class ServerThread extends Thread {

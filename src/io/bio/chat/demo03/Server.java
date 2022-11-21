@@ -1,16 +1,14 @@
-package io.bio.socket.demo06;
+package io.bio.chat.demo03;
 
 import java.net.ServerSocket;
-import java.net.Socket;
 
 public class Server {
 
     public static void main(String[] args) {
         try (var ss = new ServerSocket(9999)) {
-            Socket socket;
-            do {
-                new ServerThread(socket = ss.accept()).start();
-            } while (socket != null);
+            while (true) {
+                new ChatThread(ss.accept()).start();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

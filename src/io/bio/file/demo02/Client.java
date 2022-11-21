@@ -1,4 +1,4 @@
-package io.bio.socket.demo06;
+package io.bio.file.demo02;
 
 import java.io.*;
 import java.net.Socket;
