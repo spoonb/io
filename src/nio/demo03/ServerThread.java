@@ -1,4 +1,4 @@
-package nio.demo02;
+package nio.demo03;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -28,7 +28,8 @@ public class ServerThread extends Thread {
                     if (next.isAcceptable()) {
                         accept(next);
                     } else if (next.isReadable()) {
-                        read(next);
+                        String msg = read(next);
+                        write(next, msg);
                     }
                     it.remove();
                 }
@@ -38,6 +39,10 @@ public class ServerThread extends Thread {
         }
     }
 
+    private void write(SelectionKey next, String msg) {
+        
+    }
+
     private void accept(SelectionKey key) throws Exception {
         ServerSocketChannel channel = (ServerSocketChannel) key.channel();
         SocketChannel socket = channel.accept();
@@ -45,13 +50,15 @@ public class ServerThread extends Thread {
         socket.register(selector, SelectionKey.OP_READ);
     }
 
-    private void read(SelectionKey key) throws Exception {
+    private String read(SelectionKey key) throws Exception {
         SocketChannel socket = (SocketChannel) key.channel();
+        String msg = "";
         if (socket.read(bb) > 0) {
             bb.flip();
-            System.out.println(toStr(bb));
+            msg = toStr(bb);
             bb.clear();
         }
+        return msg;
     }
 
     private String toStr(ByteBuffer bb) {

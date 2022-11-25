@@ -1,4 +1,4 @@
-package nio.demo02;
+package nio.demo03;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -7,13 +7,13 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
-public class ServerThread extends Thread {
+public class ReadThread extends Thread {
 
     private Selector selector;
 
     private ByteBuffer bb = ByteBuffer.allocate(1024);
 
-    public ServerThread(Selector selector) {
+    public ReadThread(Selector selector) {
         this.selector = selector;
     }
 
