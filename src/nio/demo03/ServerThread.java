@@ -40,7 +40,7 @@ public class ServerThread extends Thread {
     }
 
     private void write(SelectionKey next, String msg) {
-        
+
     }
 
     private void accept(SelectionKey key) throws Exception {
